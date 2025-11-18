@@ -16,14 +16,14 @@ import com.example.jobify_spring.repositories.UserRepository;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
-  private UserRepository userRepository; // Assuming you have a UserRepository
+  private UserRepository userRepository;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     List<UserModel> users = userRepository.findAll();
 
     UserModel user = users.stream().filter(u -> u.getName().equalsIgnoreCase(username)).findAny()
-        .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+        .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     return new User(user.getName(), "", new ArrayList<>());
   }
 }
