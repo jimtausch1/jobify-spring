@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.jobify_spring.models.User;
+import com.example.jobify_spring.models.UserModel;
 import com.example.jobify_spring.services.UserService;
 
 @RestController
@@ -17,7 +17,7 @@ public class UserController {
   private UserService userService;
 
   @GetMapping
-  public List<User> getAllUsers() {
+  public List<UserModel> getAllUsers() {
     return userService.getAllUsers();
   }
 

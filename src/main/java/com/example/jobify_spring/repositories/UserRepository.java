@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.lang.NonNull;
 
-import com.example.jobify_spring.models.User;
+import com.example.jobify_spring.models.UserModel;
 
-public interface UserRespository extends MongoRepository<User, ObjectId> {
-  List<User> findAll();
+public interface UserRepository extends MongoRepository<UserModel, ObjectId> {
+  @NonNull
+  List<UserModel> findAll();
 
   // Optional<User> findUserById(ObjectId _id);
 }

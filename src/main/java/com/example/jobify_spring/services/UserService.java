@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.jobify_spring.models.User;
-import com.example.jobify_spring.repositories.UserRespository;
+import com.example.jobify_spring.models.UserModel;
+import com.example.jobify_spring.repositories.UserRepository;
 
 @Service
 public class UserService {
   @Autowired
-  private UserRespository userRespository;
+  private UserRepository userRepository;
 
-  public List<User> getAllUsers() {
-    return userRespository.findAll();
+  public List<UserModel> getAllUsers() {
+    return userRepository.findAll();
   }
 
   // public Optional<User> getUserById(ObjectId _id) {
