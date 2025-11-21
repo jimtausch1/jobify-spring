@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,11 +22,9 @@ public class UserController {
     return userService.getAllUsers();
   }
 
-  // @GetMapping("/{id}")
-  // public ResponseEntity<User> getProductById(@PathVariable String id) {
-  // return userService.getUserById(id)
-  // .map(ResponseEntity::ok)
-  // .orElse(ResponseEntity.notFound().build());
-  // }
+  @GetMapping("/{id}")
+  public UserModel getUserById(@PathVariable String id) {
+    return userService.getUserById(id);
+  }
 
 }
